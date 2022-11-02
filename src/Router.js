@@ -2,16 +2,16 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // 심동섭의 컴포넌트
-import KwakMain from './pages/kwakjongbum/Main/Main';
-import KwakLogin from './pages/kwakjongbum/Login/Login';
-import KimMain from './pages/kimdongki/Main/Main';
-import KimLogin from './pages/kimdongki/Login/Login';
-import ShimMain from './pages/shimdongseup/Main/Main';
-import ShimLogin from './pages/shimdongseup/Login/Login';
-import JungMain from './pages/junghyowon/Main/Main';
-import JungLogin from './pages/junghyowon/Login/Login';
-import JoMain from './pages/johyeoungjin/Main/Main';
-import JoLogin from './pages/johyeoungjin/Login/Login';
+import KwakMain from './pages/kwakjongbum/Main/KwakMain';
+import KwakLogin from './pages/kwakjongbum/Login/KwakLogin';
+import KimMain from './pages/kimdongki/Main/KimMain';
+import KimLogin from './pages/kimdongki/Login/KimLogin';
+import ShimMain from './pages/shimdongseup/Main/ShimMain';
+import ShimLogin from './pages/shimdongseup/Login/ShimLogin';
+import JungMain from './pages/junghyowon/Main/JungMain';
+import JungLogin from './pages/junghyowon/Login/JungLogin';
+import JoMain from './pages/johyeoungjin/Main/JoMain';
+import JoLogin from './pages/johyeoungjin/Login/JoLogin';
 
 // import 한 컴포넌트에 대한 경로를 각각 설정해줍니다.
 const Router = () => {
