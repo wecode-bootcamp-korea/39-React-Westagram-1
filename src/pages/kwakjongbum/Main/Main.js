@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function KwakMain() {
   return <div>곽종범 메인페이지</div>;
