@@ -373,6 +373,7 @@
 
       input {
         width: 100%;
+        border: none;
         outline: none;
       }
 
@@ -380,7 +381,10 @@
         position: absolute;
         top: 50%;
         right: 15px;
+        padding: 0;
         transform: translateY(-50%);
+        border: none;
+        background: transparent;
         color: #296dea;
         font-size: 12px;
 
