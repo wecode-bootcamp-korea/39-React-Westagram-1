@@ -375,7 +375,7 @@ function ShimMain() {
             © 2022 INSTAGRAM FROM META
             <br />
             <br />
-            <Link to="/Login">·Logout·</Link>
+            <Link to="/ShimLogin">·Logout·</Link>
           </h5>
         </div>
       </section>

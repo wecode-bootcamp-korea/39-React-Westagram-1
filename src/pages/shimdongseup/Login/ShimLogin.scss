@@ -1,6 +1,7 @@
 body {
   background-color: #fafafa;
-  font-family: "Nanum Gothic", sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
+  position: relative;
   h3 {
     font-size: 14px;
     font-weight: 800;
@@ -15,11 +16,11 @@ body {
     font-weight: 300;
   }
   .login {
+    position: absolute;
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 32px;
+    top: 100px;
     .loginBox {
       position: relative;
       display: flex;
@@ -35,7 +36,7 @@ body {
         top: 0px;
         text-decoration: none;
         .logo {
-          font-family: "Lobster", cursive;
+          font-family: 'Lobster', cursive;
           color: rgb(38, 38, 38);
           cursor: pointer;
           font-size: 51px;

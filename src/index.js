@@ -5,6 +5,7 @@ import './styles/reset.scss';
 import './styles/common.scss';
 import './pages/shimdongseup/Login/ShimLogin.scss';
 import './pages/shimdongseup/Main/ShimMain.scss';
+import './components/Nav/Nav.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Router />);
