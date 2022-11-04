@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+h1 {
+  font-family: 'Lobster', sans-serif;
+}
+
+.container-wrap {
+  width: 350px;
+  margin: 50px auto 10px auto;
+  border: 1px solid lightgray;
+  background-color: #fff;
+}
+
+.login-title {
+  margin-top: 30px;
+  font-size: 40px;
+  line-height: 4rem;
+  text-align: center;
+}
+
+.container-wrap > :nth-child(2) {
+  width: 270px;
+  margin: 3rem auto;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  justify-self: center;
+}
+
+input,
+textarea {
+  width: 270px;
+  height: 35px;
+  margin-bottom: 5px;
+  padding: 10px 12px;
+  border: 1px solid silver;
+  border-radius: 3px;
+  background-color: #f2f3f5;
+  color: #000000;
+  font-size: 12px;
+}
+
+#btn {
+  height: 30px;
+  margin: 10px 0px;
+  border: none;
+  border-radius: 3px;
+  background-color: #c0dffd;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* btn.active{
+    background-color: rgba(0, 147, 245);
+*/
+
+.last {
+  margin-top: 100px;
+  margin-bottom: 20px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.last p a {
+  color: #000069;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.footer {
+  width: 350px;
+  height: 60px;
+  margin: 15px auto;
+  border: 1px solid lightgray;
+  background-color: #fff;
+  font-size: 14px;
+  text-align: center;
+}
+
+.join {
+  padding: 20px;
+}
+
+.join-notice {
+  margin-right: 5px;
+  color: #323232;
+}
+
+.join a {
+  color: #1ea4ff;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.app-down {
+  width: 300px;
+  margin: 5px auto;
+}
+
+.download-notice {
+  width: 300px;
+  padding: 14px;
+  color: #323232;
+  font-size: 14px;
+  text-align: center;
+}
+
+#appstore {
+  height: 40px;
+  margin: 5px;
+}
