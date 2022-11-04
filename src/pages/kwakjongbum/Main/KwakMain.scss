@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 .wrap {
   padding-top: 120px;
 }
@@ -528,6 +529,9 @@
             overflow: hidden;
             transform: translateY(-50%);
             border-radius: 50%;
+            img {
+              width: 100%;
+            }
           }
 
           .id {

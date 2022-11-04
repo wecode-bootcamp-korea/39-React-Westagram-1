@@ -48,7 +48,7 @@ function KwakMain() {
                 <div className="l-btn">
                   <span className="btn-like">
                     <input type="checkbox" id="btnLike" />
-                    <label for="btnLike">좋아요</label>
+                    <label htmlFor="btnLike">좋아요</label>
                   </span>
                   <button type="button" className="btn-comment">
                     댓글
@@ -59,7 +59,7 @@ function KwakMain() {
                 </div>
                 <span className="btn-bookmark">
                   <input type="checkbox" id="btnBookmark" />
-                  <label for="btnBookmark">북마크</label>
+                  <label htmlFor="btnBookmark">북마크</label>
                 </span>
               </div>
               <div className="state-area">
