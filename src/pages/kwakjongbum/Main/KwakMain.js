@@ -1,7 +1,29 @@
 import React from 'react';
 import './KwakMain.scss';
+import CommentList from './CommentList';
+import { useState } from 'react';
 
 function KwakMain() {
+  const user = 'wecode';
+  const [comment, setComment] = useState([]);
+  const [value, setValue] = useState('');
+  const [btn, setBtn] = useState(true);
+
+  const inputVal = e => {
+    setValue(e.target.value);
+  };
+
+  const btnActive = () => {
+    value.length > 0 ? setBtn(false) : setBtn(true);
+  };
+
+  const commentAdd = () => {
+    let copyComment = [...comment];
+    copyComment.push(value);
+    setComment(copyComment);
+    setValue('');
+  };
+
   return (
     <div className="wrap">
       <div className="header">
@@ -67,12 +89,12 @@ function KwakMain() {
                   <img src="/images/kwakjongbum/img2.jpg" alt="샘플" />
                 </span>
                 <p className="text">
-                  <span className="state-id">aineword</span>님 외{' '}
+                  <span className="state-id">aineword</span>님 외
                   <span className="num">10명</span>이 좋아합니다
                 </p>
               </div>
-              <ul className="comment-area">
-                <li className="my">
+              <div className="comment-area">
+                <div className="my">
                   <span className="comment-id">canon_mj</span>
                   <span className="comment-content">
                     위워크에서 진행한 베이킹 클래스 너무 좋았습니다.
@@ -80,40 +102,58 @@ function KwakMain() {
                   <button type="button" className="btn-txt">
                     더 보기
                   </button>
-                </li>
-                <li>
-                  <span className="comment-id">naceosecius</span>
-                  <span className="comment-content">거봐 좋았잖아~~~~</span>
-                  <div className="btn-wrap">
-                    <button type="button" className="btn-like on">
-                      좋아요
-                    </button>
-                    <button type="button" className="btn-delete">
-                      삭제
-                    </button>
-                  </div>
-                </li>
-                <li>
-                  <span className="comment-id">naceosecius</span>
-                  <span className="comment-content">testtesttesttesttest</span>
-                  <div className="btn-wrap">
-                    <button type="button" className="btn-like">
-                      좋아요
-                    </button>
-                    <button type="button" className="btn-delete">
-                      삭제
-                    </button>
-                  </div>
-                </li>
-              </ul>
+                </div>
+                <ul className="comment-list">
+                  <li>
+                    <span className="comment-id">jjongbum92</span>
+                    <span className="comment-content">test</span>
+                    <div className="btn-wrap">
+                      <button type="button" className="btn-like">
+                        좋아요
+                      </button>
+                      <button type="button" className="btn-delete">
+                        삭제
+                      </button>
+                    </div>
+                  </li>
+                  {comment.map((value, i) => (
+                    <CommentList
+                      user={user}
+                      value={value}
+                      key={i}
+                      commentDel={() => {
+                        const copyComment = [...comment];
+                        copyComment.splice(i, 1);
+                        setComment(copyComment);
+                      }}
+                    />
+                  ))}
+                </ul>
+              </div>
               <p className="time">
                 <span>42분</span>전
               </p>
             </div>
           </div>
           <div className="feed-input">
-            <input type="text" placeholder="댓글 달기..." />
-            <button type="button" className="btn-post" disabled>
+            <input
+              type="text"
+              placeholder="댓글 달기..."
+              onKeyUp={btnActive}
+              onChange={inputVal}
+              value={value}
+              onKeyPress={e => {
+                if (e.key === 'Enter' && value.length > 0) {
+                  commentAdd();
+                }
+              }}
+            />
+            <button
+              type="button"
+              className="btn-post"
+              disabled={btn}
+              onClick={commentAdd}
+            >
               게시
             </button>
           </div>
