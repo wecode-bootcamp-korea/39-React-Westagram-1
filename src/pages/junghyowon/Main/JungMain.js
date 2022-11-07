@@ -1,58 +1,91 @@
 import React from 'react';
+import './JungMain.scss';
 
 function JungMain() {
   return (
     <>
       {/*헤더*/}
       <nav className="nav-icon">
-        <img id="logo" alt="logo" src="/images/logo.png" />
-        <img alt="home" src="/images/home.png" />
-        <img alt="search" src="/images/search.png" />
-        <img alt="camposs" src="/images/camposs.png" />
-        <img alt="dm" src="/images/dm.png" />
-        <img alt="heart" src="/images/heart.png" />
-        <img id="myprofile" alt="my profile" src="/images/friend1.jpeg" />
-        <img id="moreview" alt="moreview" src="/images/moreview.png" />
+        <img className="logo" alt="logo" src="/images/junghyowon/logo.png" />
+        <img alt="home" src="/images/junghyowon/home.png" />
+        <img alt="search" src="/images/junghyowon/search.png" />
+        <img alt="camposs" src="/images/junghyowon/camposs.png" />
+        <img alt="dm" src="/images/junghyowon/dm.png" />
+        <img alt="heart" src="/images/junghyowon/heart.png" />
+        <img
+          className="myprofile"
+          alt="my profile"
+          src="/images/junghyowon/friend1.jpg"
+        />
+        <div className="moreview-img">
+          <img
+            className="moreview"
+            alt="moreview"
+            src="/images/junghyowon/moreview.png"
+          />
+        </div>
       </nav>
-      <div class="mainfeed-container">
-        <artile>
+      <div className="mainfeed-container">
+        <article>
           <div className="mainfeed-top">
-            <div class="feed-profile">
-              <div class="feed-profile1">
-                <img alt="feed1" src="/images/mycat.jpeg" />
+            <div className="feed-profile">
+              <div className="feed-profile1">
+                <img
+                  className="feedprofile-img"
+                  alt="feed1"
+                  src="/images/junghyowon/mycat.jpg"
+                />
                 <span>yeori_luv_0</span>
               </div>
-              <div class="feed-profile1">
-                <img alt="feed1" src="/images/profile1.jpeg" />
+              <div className="feed-profile1">
+                <img
+                  className="feedprofile-img"
+                  alt="feed2"
+                  src="/images/junghyowon/profile1.jpeg"
+                />
                 <span>zz2_tt</span>
               </div>
-              <div class="feed-profile1">
-                <img alt="feed1" src="/images/friend2.jpeg" />
+              <div className="feed-profile1">
+                <img
+                  className="feedprofile-img"
+                  alt="feed3"
+                  src="/images/junghyowon/friend2.jpeg"
+                />
                 <span>aimyon36</span>
               </div>
-              <div class="feed-profile1">
-                <img alt="feed1" src="/images/nuri5.jpeg" />
+              <div className="feed-profile1">
+                <img
+                  className="feedprofile-img"
+                  alt="feed4"
+                  src="/images/junghyowon/nuri5.jpg"
+                />
                 <span>luv_nan2</span>
               </div>
             </div>
           </div>
           <div className="feed-image-top">
-            <div className="user-profile"></div>
-            <img alt="user-profile-image" src="/images/mymelody.jpeg" />
+            <img
+              alt="user-profile-image"
+              src="/images/junghyowon/mymelody.jpeg"
+            />
             <span>timtimxxz</span>
             <div className="feed-image-top-more">
-              <img src="/images/viewmore.png" />
+              <img alt="feed-user" src="/images/junghyowon/viewmore.png" />
             </div>
           </div>
           <div className="feed-image">
-            <img alt="feed-image" src="/images/nuri2.jpeg" />
+            <img alt="feed-image" src="/images/junghyowon/nuri2.jpg" />
           </div>
           <div className="mainfeed-comment-top">
-            <img src="/images/heart.png" />
-            <img src="/images/message.png" />
-            <img src="/images/dm.png" />
+            <img alt="mainfeed-icon" src="/images/junghyowon/heart.png" />
+            <img alt="mainfeed-icon" src="/images/junghyowon/message.png" />
+            <img alt="mainfeed-icon" src="/images/junghyowon/dm.png" />
             <div className="bookmark">
-              <img alt="bookmark" src="/images/bookmark.png" />
+              <img
+                className="bookmarkimg"
+                alt="bookmark"
+                src="/images/junghyowon/bookmark.png"
+              />
             </div>
           </div>
           <div className="feed-comment-main">
@@ -69,7 +102,7 @@ function JungMain() {
               </ul>
             </div>
             <div className="comment-write">
-              <img alt="emogi" src="/images/emogi.png" />
+              <img alt="emogi" src="/images/junghyowon/emogi.png" />
               <input
                 className="comment-input"
                 type="text"
@@ -82,21 +115,24 @@ function JungMain() {
           </div>
           <div className="feed-image-top">
             <div className="user-profile"></div>
-            <img alt="user-profile-image" src="/images/friend2.jpeg" />
+            <img
+              alt="user-profile-image"
+              src="/images/junghyowon/friend2.jpeg"
+            />
             <span>y_wldud</span>
             <div className="feed-image-top-more">
-              <img src="/images/viewmore.png" />
+              <img alt="feed-viewmore" src="/images/junghyowon/viewmore.png" />
             </div>
           </div>
           <div className="feed-image">
-            <img alt="feed-image" src="/images/profile_sea.png" />
+            <img alt="feed-image" src="/images/junghyowon/profile_sea.png" />
           </div>
           <div className="mainfeed-comment-top">
-            <img src="/images/heart.png" />
-            <img src="/images/message.png" />
-            <img src="/images/dm.png" />
+            <img alt="comment-icon" src="/images/junghyowon/heart.png" />
+            <img alt="comment-icon" src="/images/junghyowon/message.png" />
+            <img alt="comment-icon" src="/images/junghyowon/dm.png" />
             <div className="bookmark">
-              <img alt="bookmark" src="/images/bookmark.png" />
+              <img alt="bookmark" src="/images/junghyowon/bookmark.png" />
             </div>
           </div>
           <div className="feed-comment-main">
@@ -112,7 +148,7 @@ function JungMain() {
               </ul>
             </div>
             <div className="comment-write">
-              <img alt="emogi" src="/images/emogi.png" />
+              <img alt="emogi" src="/images/junghyowon/emogi.png" />
               <input
                 className="comment-input"
                 type="text"
@@ -123,13 +159,13 @@ function JungMain() {
               </button>
             </div>
           </div>
-        </artile>
+        </article>
         <div className="main-feed-right">
           <div className="myprofile-right">
             <img
               className="imageround"
               alt="myprofile"
-              src="/images/friend1.jpeg"
+              src="/images/junghyowon/friend1.jpg"
             />
             <div className="myprofile-name">
               <p>renebaebae</p>
@@ -144,9 +180,9 @@ function JungMain() {
             <span>모두 보기</span>
           </div>
           <div className="recommand-friend">
-            <img alt="friend1" src="/images/profile.jpeg" />
+            <img alt="friend1" src="/images/junghyowon/profile.jpeg" />
             <div className="friend-name">
-              <p>seumseu</p>
+              <p claaName="followfriend-name">seumseu</p>
               <span>회원님을 팔로우합니다</span>
             </div>
             <div className="follow">
@@ -154,9 +190,9 @@ function JungMain() {
             </div>
           </div>
           <div className="recommand-friend">
-            <img alt="friend1" src="/images/99uri.png" />
+            <img alt="friend1" src="/images/junghyowon/99uri.png" />
             <div className="friend-name">
-              <p>a999o999s</p>
+              <p claaName="followfriend-name">a999o999s</p>
               <span>회원님을 위한 추천</span>
             </div>
             <div className="follow">
@@ -164,9 +200,9 @@ function JungMain() {
             </div>
           </div>
           <div className="recommand-friend">
-            <img alt="friend1" src="/images/sowhat.jpg" />
+            <img alt="friend1" src="/images/junghyowon/sowhat.jpg" />
             <div className="friend-name">
-              <p>dindu___u</p>
+              <p claaName="followfriend-name">dindu___u</p>
               <span>회원님을 위한 추천</span>
             </div>
             <div className="follow">
@@ -174,9 +210,9 @@ function JungMain() {
             </div>
           </div>
           <div className="recommand-friend">
-            <img alt="friend1" src="/images/profile1.jpeg" />
+            <img alt="friend1" src="/images/junghyowon/profile1.jpeg" />
             <div className="friend-name">
-              <p>seumseu</p>
+              <p>hyommm_</p>
               <span>jhdaijh님과 jhartjh님이 팔로우합니다</span>
             </div>
             <div className="follow">
