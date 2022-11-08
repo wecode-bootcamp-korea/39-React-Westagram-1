@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
-// 심동섭의 컴포넌트
+import Nav from './components/Nav/Nav';
 import KwakMain from './pages/kwakjongbum/Main/KwakMain';
 import KwakLogin from './pages/kwakjongbum/Login/KwakLogin';
 import KimMain from './pages/kimdongki/Main/KimMain';
@@ -12,7 +11,6 @@ import JungMain from './pages/junghyowon/Main/JungMain';
 import JungLogin from './pages/junghyowon/Login/JungLogin';
 import JoMain from './pages/johyeoungjin/Main/JoMain';
 import JoLogin from './pages/johyeoungjin/Login/JoLogin';
-import Nav from './components/Nav/Nav';
 
 // import 한 컴포넌트에 대한 경로를 각각 설정해줍니다.
 const Router = () => {
