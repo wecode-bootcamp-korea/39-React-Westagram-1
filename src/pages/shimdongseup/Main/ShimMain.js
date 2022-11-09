@@ -163,7 +163,6 @@ function ShimMain() {
             </div>
             <ul>
               <li>
-                <div className="storyColor"></div>
                 <img src="./images/shimdongseup/kfc_img.jpeg" alt="story_img" />
                 <div>
                   <h3>kfc</h3>
