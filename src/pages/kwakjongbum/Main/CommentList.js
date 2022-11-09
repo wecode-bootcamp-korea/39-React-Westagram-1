@@ -1,10 +1,9 @@
 import React from 'react';
-import { useState } from 'react';
 
 function CommentList(props) {
   return (
     <li key={props.key}>
-      <span className="comment-id">{props.user}</span>
+      <span className="comment-id">{props.user.user}</span>
       <span className="comment-content">{props.value}</span>
       <div className="btn-wrap">
         <button type="button" className="btn-like">

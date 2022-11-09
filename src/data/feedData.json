@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "user": "jeong",
+    "img": "/images/kwakjongbum/img1.jpg",
+    "feedImg": "/images/kwakjongbum/img1.jpg"
+  },
+  {
+    "id": "2",
+    "user": "hwan",
+    "img": "/images/kwakjongbum/img2.jpg",
+    "feedImg": "/images/kwakjongbum/img2.jpg"
+  },
+  {
+    "id": "3",
+    "user": "jeonghwan",
+    "img": "/images/kwakjongbum/img3.jpg",
+    "feedImg": "/images/kwakjongbum/img3.jpg"
+  },
+  {
+    "id": "4",
+    "user": "jeonghwanjeonghwan",
+    "img": "/images/kwakjongbum/img4.jpg",
+    "feedImg": "/images/kwakjongbum/img4.jpg"
+  }
+]

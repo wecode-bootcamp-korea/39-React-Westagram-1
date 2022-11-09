@@ -127,6 +127,9 @@
   .l-content {
     border: 1px solid #ddd;
     border-radius: 4px;
+    & + .l-content {
+      margin-top: 30px;
+    }
 
     .feed-box {
       .feed-top {
@@ -575,8 +578,11 @@
         position: relative;
         margin: 0 3px 3px 0;
         padding-right: 3px;
-        color: #666;
-        font-size: 12px;
+        a {
+          color: #666;
+          font-size: 12px;
+          text-decoration: none;
+        }
 
         &:after {
           content: '';
