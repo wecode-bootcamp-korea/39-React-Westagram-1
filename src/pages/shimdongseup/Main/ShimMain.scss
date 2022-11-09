@@ -542,7 +542,24 @@ body {
         font-size: 14px;
         margin-top: 15px;
         font-weight: 400;
-        a {
+        li {
+          display: inline-block;
+          position: relative;
+          margin: 0 3px 3px 0;
+          padding-right: 3px;
+          a {
+            color: #cacaca;
+            font-size: 12px;
+            text-decoration: none;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+          span {
+            margin-left: 6px;
+          }
+        }
+        .logout {
           color: #cacaca;
         }
       }

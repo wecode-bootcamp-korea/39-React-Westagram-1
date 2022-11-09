@@ -206,17 +206,26 @@ function ShimMain() {
               </li>
             </ul>
           </div>
-          <h5 className="right-footer">
-            instagram 정보 · 지원 · 홍보 센터 · API · <br />
-            채용 정보 · 개인정보처리방침 · 약관 ·<br />
-            디렉터리 · 프로필 · 해시태그 · 언어
-            <br />
-            <br />
-            © 2022 INSTAGRAM FROM META
-            <br />
-            <br />
-            <Link to="/ShimLogin">·Logout·</Link>
-          </h5>
+          <ul className="right-footer">
+            {FOOTER_INFO_LIST.map(infoList => {
+              return (
+                <li key={infoList.id}>
+                  <a href={infoList.link}>{infoList.text}</a>
+                  <span>{infoList.next}</span>
+                </li>
+              );
+            })}
+            <h5>
+              <br />
+              <br />
+              © 2022 INSTAGRAM FROM META
+              <br />
+              <br />
+            </h5>
+            <Link className="logout" to="/ShimLogin">
+              ·Logout·
+            </Link>
+          </ul>
         </div>
       </section>
     </>
@@ -224,3 +233,49 @@ function ShimMain() {
 }
 
 export default ShimMain;
+
+const FOOTER_INFO_LIST = [
+  { id: 1, link: 'https://about.instagram.com/', text: '소개', next: '·' },
+  { id: 2, link: 'https://help.instagram.com/', text: '도움말', next: '·' },
+  {
+    id: 3,
+    link: 'https://about.instagram.com/blog',
+    text: '홍보 센터',
+    next: '·',
+  },
+  {
+    id: 4,
+    link: 'https://developers.facebook.com/docs/instagram',
+    text: 'API',
+  },
+  {
+    id: 5,
+    link: 'https://about.instagram.com/about-us/careers',
+    text: '채용 정보',
+    next: '·',
+  },
+  {
+    id: 6,
+    link: 'https://privacycenter.instagram.com/policy/?entry_point=ig_help_center_data_policy_redirect',
+    text: '개인정보처리방침',
+    next: '·',
+  },
+  {
+    id: 7,
+    link: 'https://help.instagram.com/581066165581870/',
+    text: '약관',
+    next: '·',
+  },
+  {
+    id: 8,
+    link: 'https://www.instagram.com/explore/locations/',
+    text: '위치',
+    next: '·',
+  },
+  {
+    id: 9,
+    link: '#',
+    text: '위치',
+    next: '',
+  },
+];
