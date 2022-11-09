@@ -10,7 +10,7 @@ function SearchUser(props) {
   }, []);
 
   const searchDiv = userList.map((obj, i) => {
-    if (obj.userId.indexOf(props.searchInput) > -1) {
+    if (obj.userId.includes(props.searchInput)) {
       return (
         <div key={i} className="searchedUser">
           <img src={obj.userImg} alt="filtered user" />
