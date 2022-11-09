@@ -1,7 +1,20 @@
 import React from 'react';
+import { useState } from 'react';
 import './JungMain.scss';
 
 function JungMain() {
+  const [comment, setComment] = useState('');
+  const [commentArea, setCommentArea] = useState([
+    {
+      id: 'hyowon',
+      comment: '1번 댓글',
+    },
+  ]);
+
+  const handleInput = e => {
+    setComment(e.target.value);
+  };
+
   return (
     <>
       {/*헤더*/}
@@ -94,11 +107,7 @@ function JungMain() {
               <span>timtimxxz</span>
               <span>🐶 휴지로 파티하는 누리</span>
               <ul>
-                <li>crowtit_tattoo 누리 완전 신났네</li>
-                <li>cheatival_ 나도 누리랑 놀아줄래 ㅎ</li>
-                <li>
-                  mong8yy 오늘도 복실복실 하구나 미용은 언제하러 가니 누리야
-                </li>
+                <li></li>
               </ul>
             </div>
             <div className="comment-write">
@@ -117,15 +126,15 @@ function JungMain() {
             <div className="user-profile"></div>
             <img
               alt="user-profile-image"
-              src="/images/junghyowon/friend2.jpeg"
+              src="/images/junghyowon/sakuraprofile.png"
             />
-            <span>y_wldud</span>
+            <span>39saku_chan</span>
             <div className="feed-image-top-more">
               <img alt="feed-viewmore" src="/images/junghyowon/viewmore.png" />
             </div>
           </div>
           <div className="feed-image">
-            <img alt="feed-image" src="/images/junghyowon/profile_sea.png" />
+            <img alt="feed-image" src="/images/junghyowon/sakura.png" />
           </div>
           <div className="mainfeed-comment-top">
             <img alt="comment-icon" src="/images/junghyowon/heart.png" />
@@ -137,14 +146,12 @@ function JungMain() {
           </div>
           <div className="feed-comment-main">
             <div className="comment-my">
-              <p>좋아요 15개</p>
-              <span>y_wldud</span>
-              <span>한가로운 사이판 바다🌴</span>
+              <p>좋아요 888,392개</p>
+              <span>39saku_chan</span>
+              <span>봄인가 여름인가...💐🌳</span>
               <ul>
-                <li>sumida_table 헐 ~ 나도 해외여행 가고싶당 ㅠㅠ</li>
-                <li>
-                  reimepurr 와 바다 진짜 깨끗하고 이쁘다 완전 에메랄드 색이네
-                </li>
+                <li>vzceah 非常に美しい 😍</li>
+                <li>lliirew ほんとに可愛い😭😭😭憧れ。大好きさくちゃん</li>
               </ul>
             </div>
             <div className="comment-write">
@@ -182,7 +189,7 @@ function JungMain() {
           <div className="recommand-friend">
             <img alt="friend1" src="/images/junghyowon/profile.jpeg" />
             <div className="friend-name">
-              <p claaName="followfriend-name">seumseu</p>
+              <p className="followfriend-name">seumseu</p>
               <span>회원님을 팔로우합니다</span>
             </div>
             <div className="follow">
@@ -192,7 +199,7 @@ function JungMain() {
           <div className="recommand-friend">
             <img alt="friend1" src="/images/junghyowon/99uri.png" />
             <div className="friend-name">
-              <p claaName="followfriend-name">a999o999s</p>
+              <p className="followfriend-name">a999o999s</p>
               <span>회원님을 위한 추천</span>
             </div>
             <div className="follow">
@@ -202,7 +209,7 @@ function JungMain() {
           <div className="recommand-friend">
             <img alt="friend1" src="/images/junghyowon/sowhat.jpg" />
             <div className="friend-name">
-              <p claaName="followfriend-name">dindu___u</p>
+              <p className="followfriend-name">dindu___u</p>
               <span>회원님을 위한 추천</span>
             </div>
             <div className="follow">

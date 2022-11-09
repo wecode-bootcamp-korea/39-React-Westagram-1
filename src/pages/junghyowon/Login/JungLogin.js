@@ -10,7 +10,7 @@ function JungLogin() {
 
   const onCheckEnter = e => {
     if (e.key === 'Enter') {
-      goToMain;
+      goToMain();
     }
   };
 
