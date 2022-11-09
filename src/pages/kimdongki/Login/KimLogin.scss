@@ -16,7 +16,7 @@ main {
 
     .login_logo {
       font-family: 'Lobster', cursive;
-      font-size: 50px;
+      font-size: 100px;
       margin-top: 20px;
       text-align: center;
       margin-bottom: 30px;
@@ -44,12 +44,18 @@ main {
         font-size: 22px;
         padding: 10px;
         border-radius: 5px;
-        background-color: #c0dffd;
+        background-color: #0095f6;
         border: 1px solid #bbb;
         margin-bottom: 120px;
         color: white;
         width: 100%;
         height: 56px;
+
+        &:disabled {
+          opacity: 0.4;
+          cursor: default;
+          background-color: #bfdffd;
+        }
       }
     }
 
@@ -61,10 +67,6 @@ main {
         text-decoration: none;
         color: blue;
       }
-    }
-
-    .login_btn:hover {
-      cursor: pointer;
     }
   }
 }
