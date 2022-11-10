@@ -1,19 +1,41 @@
-import React from 'react';
-import { useState } from 'react';
 import './JungMain.scss';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import Feed from './Feed';
 
 function JungMain() {
-  const [comment, setComment] = useState('');
-  const [commentArea, setCommentArea] = useState([
-    {
-      id: 'hyowon',
-      comment: '1번 댓글',
-    },
-  ]);
+  const [btnColor, setBtnColor] = useState(false);
 
-  const handleInput = e => {
-    setComment(e.target.value);
+  function turnBtn() {
+    return input.length > 0 ? setBtnColor(true) : setBtnColor(false);
+  }
+
+  const [input, setInput] = useState('');
+  const [commentArr, setCommentArr] = useState([]);
+
+  const saveComment = e => {
+    setInput(e.target.value);
   };
+
+  const commentArray = e => {
+    setCommentArr([...commentArr, input]);
+    setInput('');
+  };
+
+  const SingleComment = ({ content }) => {
+    return <li>hyommm_0 {content}</li>;
+  };
+
+  const [feedList, setFeedList] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/junghyowon/feedList.json')
+      .then(response => response.json())
+      .then(result => {
+        setFeedList(result);
+      });
+  }, []);
+  console.log(feedList);
 
   return (
     <>
@@ -39,134 +61,13 @@ function JungMain() {
         </div>
       </nav>
       <div className="mainfeed-container">
+        {/* 메인 이미지 피드 */}
         <article>
-          <div className="mainfeed-top">
-            <div className="feed-profile">
-              <div className="feed-profile1">
-                <img
-                  className="feedprofile-img"
-                  alt="feed1"
-                  src="/images/junghyowon/mycat.jpg"
-                />
-                <span>yeori_luv_0</span>
-              </div>
-              <div className="feed-profile1">
-                <img
-                  className="feedprofile-img"
-                  alt="feed2"
-                  src="/images/junghyowon/profile1.jpeg"
-                />
-                <span>zz2_tt</span>
-              </div>
-              <div className="feed-profile1">
-                <img
-                  className="feedprofile-img"
-                  alt="feed3"
-                  src="/images/junghyowon/friend2.jpeg"
-                />
-                <span>aimyon36</span>
-              </div>
-              <div className="feed-profile1">
-                <img
-                  className="feedprofile-img"
-                  alt="feed4"
-                  src="/images/junghyowon/nuri5.jpg"
-                />
-                <span>luv_nan2</span>
-              </div>
-            </div>
-          </div>
-          <div className="feed-image-top">
-            <img
-              alt="user-profile-image"
-              src="/images/junghyowon/mymelody.jpeg"
-            />
-            <span>timtimxxz</span>
-            <div className="feed-image-top-more">
-              <img alt="feed-user" src="/images/junghyowon/viewmore.png" />
-            </div>
-          </div>
-          <div className="feed-image">
-            <img alt="feed-image" src="/images/junghyowon/nuri2.jpg" />
-          </div>
-          <div className="mainfeed-comment-top">
-            <img alt="mainfeed-icon" src="/images/junghyowon/heart.png" />
-            <img alt="mainfeed-icon" src="/images/junghyowon/message.png" />
-            <img alt="mainfeed-icon" src="/images/junghyowon/dm.png" />
-            <div className="bookmark">
-              <img
-                className="bookmarkimg"
-                alt="bookmark"
-                src="/images/junghyowon/bookmark.png"
-              />
-            </div>
-          </div>
-          <div className="feed-comment-main">
-            <div className="comment-my">
-              <p>좋아요 30개</p>
-              <span>timtimxxz</span>
-              <span>🐶 휴지로 파티하는 누리</span>
-              <ul>
-                <li></li>
-              </ul>
-            </div>
-            <div className="comment-write">
-              <img alt="emogi" src="/images/junghyowon/emogi.png" />
-              <input
-                className="comment-input"
-                type="text"
-                placeholder="댓글 달기..."
-              />
-              <button className="comment-push" type="button">
-                게시
-              </button>
-            </div>
-          </div>
-          <div className="feed-image-top">
-            <div className="user-profile"></div>
-            <img
-              alt="user-profile-image"
-              src="/images/junghyowon/sakuraprofile.png"
-            />
-            <span>39saku_chan</span>
-            <div className="feed-image-top-more">
-              <img alt="feed-viewmore" src="/images/junghyowon/viewmore.png" />
-            </div>
-          </div>
-          <div className="feed-image">
-            <img alt="feed-image" src="/images/junghyowon/sakura.png" />
-          </div>
-          <div className="mainfeed-comment-top">
-            <img alt="comment-icon" src="/images/junghyowon/heart.png" />
-            <img alt="comment-icon" src="/images/junghyowon/message.png" />
-            <img alt="comment-icon" src="/images/junghyowon/dm.png" />
-            <div className="bookmark">
-              <img alt="bookmark" src="/images/junghyowon/bookmark.png" />
-            </div>
-          </div>
-          <div className="feed-comment-main">
-            <div className="comment-my">
-              <p>좋아요 888,392개</p>
-              <span>39saku_chan</span>
-              <span>봄인가 여름인가...💐🌳</span>
-              <ul>
-                <li>vzceah 非常に美しい 😍</li>
-                <li>lliirew ほんとに可愛い😭😭😭憧れ。大好きさくちゃん</li>
-              </ul>
-            </div>
-            <div className="comment-write">
-              <img alt="emogi" src="/images/junghyowon/emogi.png" />
-              <input
-                className="comment-input"
-                type="text"
-                placeholder="댓글 달기..."
-              />
-              <button className="comment-push" type="button">
-                게시
-              </button>
-            </div>
-          </div>
+          {feedList.map(feed => (
+            <Feed key={feed.id} feed={feed} />
+          ))}
         </article>
+        {/* 피드 오른쪽 부분 */}
         <div className="main-feed-right">
           <div className="myprofile-right">
             <img
@@ -226,6 +127,16 @@ function JungMain() {
               <span>팔로우</span>
             </div>
           </div>
+          <ul className="footer-info">
+            {FOOTER_INFO_LIST.map(infoList => {
+              return (
+                <li key={infoList.id}>
+                  <a href={infoList.link}>{infoList.text}</a>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="cop">ⓒ 2022 INSTAGRAM FROM META</p>
         </div>
       </div>
     </>
@@ -233,3 +144,27 @@ function JungMain() {
 }
 
 export default JungMain;
+
+const FOOTER_INFO_LIST = [
+  { id: 1, link: 'https://about.instagram.com/', text: '소개' },
+  { id: 2, link: 'https://help.instagram.com/', text: '도움말' },
+  { id: 3, link: 'https://about.instagram.com/blog', text: '홍보 센터' },
+  {
+    id: 4,
+    link: 'https://developers.facebook.com/docs/instagram',
+    text: 'API',
+  },
+  {
+    id: 5,
+    link: 'https://about.instagram.com/about-us/careers',
+    text: '채용 정보',
+  },
+  {
+    id: 6,
+    link: 'https://privacycenter.instagram.com/policy/?entry_point=ig_help_center_data_policy_redirect',
+    text: '개인정보처리방침',
+  },
+  { id: 7, link: 'https://help.instagram.com/581066165581870/', text: '약관' },
+  { id: 8, link: 'https://www.instagram.com/explore/locations/', text: '위치' },
+  { id: 9, link: '#', text: '언어' },
+];
