@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './KwakMain.scss';
 import CommentList from './CommentList';
-import { useState } from 'react';
 
 function KwakMain() {
+  const [feedInfo, setFeedInfo] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/kwakjongbum/feedData.json')
+      .then(reponse => reponse.json())
+      .then(feedData => setFeedInfo(feedData));
+  }, []);
+
   const user = {
     user: 'wecode',
   };
@@ -53,113 +60,118 @@ function KwakMain() {
         </div>
       </div>
       <div className="container">
-        <div className="l-content">
-          <div className="feed-box">
-            <div className="feed-top">
-              <img src="/images/kwakjongbum/img1.jpg" alt="샘플" />
-              <span className="user-id">canon_mj</span>
-              <div className="btn-box">
-                <button type="button" className="btn-more">
-                  더보기
+        {feedInfo.map(feedInfo => {
+          return (
+            <div className="l-content" key={feedInfo.id}>
+              <div className="feed-box">
+                <div className="feed-top">
+                  <img src={feedInfo.img} alt="샘플" />
+                  <span className="user-id">{feedInfo.user}</span>
+                  <div className="btn-box">
+                    <button type="button" className="btn-more">
+                      더보기
+                    </button>
+                  </div>
+                </div>
+                <div className="feed-img">
+                  <img src={feedInfo.feedImg} alt="샘플" />
+                </div>
+                <div className="feed-info">
+                  <div className="btn-area">
+                    <div className="l-btn">
+                      <span className="btn-like">
+                        <input type="checkbox" id="btnLike" />
+                        <label htmlFor="btnLike">좋아요</label>
+                      </span>
+                      <button type="button" className="btn-comment">
+                        댓글
+                      </button>
+                      <button type="button" className="btn-share">
+                        공유
+                      </button>
+                    </div>
+                    <span className="btn-bookmark">
+                      <input type="checkbox" id="btnBookmark" />
+                      <label htmlFor="btnBookmark">북마크</label>
+                    </span>
+                  </div>
+                  <div className="state-area">
+                    <span className="icon">
+                      <img src="/images/kwakjongbum/img2.jpg" alt="샘플" />
+                    </span>
+                    <p className="text">
+                      <span className="state-id">aineword</span>님 외
+                      <span className="num">10명</span>이 좋아합니다
+                    </p>
+                  </div>
+                  <div className="comment-area">
+                    <div className="my">
+                      <span className="comment-id">canon_mj</span>
+                      <span className="comment-content">
+                        위워크에서 진행한 베이킹 클래스 너무 좋았습니다.
+                      </span>
+                      <button type="button" className="btn-txt">
+                        더 보기
+                      </button>
+                    </div>
+                    <ul className="comment-list">
+                      <li>
+                        <span className="comment-id">jjongbum92</span>
+                        <span className="comment-content">test</span>
+                        <div className="btn-wrap">
+                          <button type="button" className="btn-like">
+                            좋아요
+                          </button>
+                          <button type="button" className="btn-delete">
+                            삭제
+                          </button>
+                        </div>
+                      </li>
+                      {comment.map((value, i) => (
+                        <CommentList
+                          user={user}
+                          value={value}
+                          key={i}
+                          commentDel={() => {
+                            const copyComment = [...comment];
+                            copyComment.splice(i, 1);
+                            setComment(copyComment);
+                          }}
+                        />
+                      ))}
+                    </ul>
+                  </div>
+                  <p className="time">
+                    <span>42분</span>전
+                  </p>
+                </div>
+              </div>
+              <div className="feed-input">
+                <input
+                  type="text"
+                  placeholder="댓글 달기..."
+                  onKeyUp={btnActive}
+                  onChange={inputVal}
+                  value={value}
+                  onKeyPress={e => {
+                    if (e.key === 'Enter' && value.length > 0) {
+                      commentAdd();
+                    }
+                  }}
+                />
+                <button
+                  type="button"
+                  className="btn-post"
+                  disabled={btn}
+                  onClick={commentAdd}
+                >
+                  게시
                 </button>
               </div>
             </div>
-            <div className="feed-img">
-              <img src="/images/kwakjongbum/img3.jpg" alt="샘플" />
-            </div>
-            <div className="feed-info">
-              <div className="btn-area">
-                <div className="l-btn">
-                  <span className="btn-like">
-                    <input type="checkbox" id="btnLike" />
-                    <label htmlFor="btnLike">좋아요</label>
-                  </span>
-                  <button type="button" className="btn-comment">
-                    댓글
-                  </button>
-                  <button type="button" className="btn-share">
-                    공유
-                  </button>
-                </div>
-                <span className="btn-bookmark">
-                  <input type="checkbox" id="btnBookmark" />
-                  <label htmlFor="btnBookmark">북마크</label>
-                </span>
-              </div>
-              <div className="state-area">
-                <span className="icon">
-                  <img src="/images/kwakjongbum/img2.jpg" alt="샘플" />
-                </span>
-                <p className="text">
-                  <span className="state-id">aineword</span>님 외
-                  <span className="num">10명</span>이 좋아합니다
-                </p>
-              </div>
-              <div className="comment-area">
-                <div className="my">
-                  <span className="comment-id">canon_mj</span>
-                  <span className="comment-content">
-                    위워크에서 진행한 베이킹 클래스 너무 좋았습니다.
-                  </span>
-                  <button type="button" className="btn-txt">
-                    더 보기
-                  </button>
-                </div>
-                <ul className="comment-list">
-                  <li>
-                    <span className="comment-id">jjongbum92</span>
-                    <span className="comment-content">test</span>
-                    <div className="btn-wrap">
-                      <button type="button" className="btn-like">
-                        좋아요
-                      </button>
-                      <button type="button" className="btn-delete">
-                        삭제
-                      </button>
-                    </div>
-                  </li>
-                  {comment.map((value, i) => (
-                    <CommentList
-                      user={user}
-                      value={value}
-                      key={i}
-                      commentDel={() => {
-                        const copyComment = [...comment];
-                        copyComment.splice(i, 1);
-                        setComment(copyComment);
-                      }}
-                    />
-                  ))}
-                </ul>
-              </div>
-              <p className="time">
-                <span>42분</span>전
-              </p>
-            </div>
-          </div>
-          <div className="feed-input">
-            <input
-              type="text"
-              placeholder="댓글 달기..."
-              onKeyUp={btnActive}
-              onChange={inputVal}
-              value={value}
-              onKeyPress={e => {
-                if (e.key === 'Enter' && value.length > 0) {
-                  commentAdd();
-                }
-              }}
-            />
-            <button
-              type="button"
-              className="btn-post"
-              disabled={btn}
-              onClick={commentAdd}
-            >
-              게시
-            </button>
-          </div>
-        </div>
+          );
+        })}
+
         <div className="r-content">
           <div className="profile-box">
             <span className="img">

@@ -1,7 +1,6 @@
-import React from 'react';
-import './KwakLogin.scss';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './KwakLogin.scss';
 
 function KwakLogin() {
   const navigate = useNavigate();
