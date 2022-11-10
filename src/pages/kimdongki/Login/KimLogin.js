@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './KimLogin.scss';
-
+import { Link, useNavigate } from 'react-router-dom';
 function KimLogin() {
   const navigate = useNavigate();
   const goToMain = () => {
@@ -22,8 +20,31 @@ function KimLogin() {
   const loginValid = id && id.includes('@') && pw && pw.length >= 5;
 
   const pressEnter = e => {
-    if (e.code === 'Enter') {
-      goToMain();
+    if (e.code === 'Enter' && loginValid === true) {
+      //로그인 정보 확인
+      fetch('로그인 API', {
+        method: 'post',
+        body: JSON.stringify({
+          id: 'id',
+          password: 'pw',
+        }),
+      })
+        .then(response => {
+          if (response.ok === true) {
+            return response.json();
+          }
+          throw new Error('에러 발생!');
+        })
+        .catch(error => console.log(error))
+        .then(data => {
+          if (data.message === 'login success') {
+            localStorage.setItem('TOKEN', data.token);
+            alert('로그인 성공');
+            goToMain();
+          } else {
+            alert('로그인 실패');
+          }
+        });
     }
   };
 
@@ -42,7 +63,7 @@ function KimLogin() {
           />
           <input
             onChange={saveUserPw}
-            onKeyDown={pressEnter}
+            onKeyPress={pressEnter}
             type="password"
             className="login_pw"
             placeholder="비밀번호"
@@ -50,16 +71,15 @@ function KimLogin() {
 
           <button
             className="login_btn"
-            // type="button"
             onClick={goToMain}
             disabled={!loginValid ? true : false}
           >
             로그인
           </button>
         </div>
-        <span className="passwordfind_link">
-          <a href="">비밀번호를 잊으셨나요?</a>
-        </span>
+        <Link className="passwordfind_link" to="#">
+          비밀번호를 잊으셨나요?
+        </Link>
       </div>
     </main>
   );

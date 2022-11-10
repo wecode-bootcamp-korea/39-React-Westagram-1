@@ -1,7 +1,30 @@
-import React from 'react';
-import './KimMain.scss';
+import React, { useState } from 'react';
+import CommentList from './CommentList';
 
 function KimMain() {
+  const [comment, setComment] = useState('');
+  const handleCommentInput = event => {
+    setComment(event.target.value);
+  };
+  const [commentArray, setCommentArray] = useState([]);
+  const onSubmit = event => {
+    event.preventDefault();
+    if (comment === '') {
+      return;
+    }
+    setCommentArray([...commentArray, comment]);
+    setComment('');
+  };
+  const pressEnter = event => {
+    if (event.code === 'Enter') {
+      event.preventDefault();
+      if (comment === '') {
+        return;
+      }
+      setCommentArray([...commentArray, comment]);
+      setComment('');
+    }
+  };
   return (
     <body>
       <nav>
@@ -42,7 +65,7 @@ function KimMain() {
                     <b>d___k222</b>
                   </p>
                   <div className="menuIcon">
-                    <i class="fas fa-ellipsis-h"></i>
+                    <i className="fas fa-ellipsis-h"></i>
                   </div>
                 </div>
               </div>
@@ -78,11 +101,12 @@ function KimMain() {
               </div>
               <div className="feed_text">
                 <p className="feedText">
-                  <span class="myNickName">d___k222</span> 김동기 '사랑의 차이'
+                  <span className="myNickName">d___k222</span> 김동기 '사랑의
+                  차이'
                 </p>
                 <div className="newComment">
-                  <span class="userNickName">johnLegend</span>
-                  <span class="Comment">
+                  <span className="userNickName">johnLegend</span>
+                  <span className="Comment">
                     what a wonderful voice...🤩 살람해요 킴동키😍
                   </span>
                   <img
@@ -92,10 +116,28 @@ function KimMain() {
                   />
                 </div>
               </div>
+              <ul>
+                {commentArray.map((comment, index) => (
+                  <CommentList key={index} comment={comment} />
+                ))}
+              </ul>
               <p className="time">1분 전</p>
               <div className="comment">
-                <input type="text" id="commentAdd" placeholder="댓글 달기..." />
-                <button type="submit" className="post_btn">
+                <input
+                  className="userCommet"
+                  onChange={handleCommentInput}
+                  value={comment}
+                  onKeyPress={pressEnter}
+                  type="text"
+                  id="commentAdd"
+                  placeholder="댓글 달기..."
+                />
+                <button
+                  type="button"
+                  onClick={onSubmit}
+                  className="post_btn"
+                  id="submit"
+                >
                   게시
                 </button>
               </div>
@@ -105,7 +147,7 @@ function KimMain() {
           <div className="main-right">
             <div className="right-top">
               <img src="./images/kimdongki/UandI.jpeg" alt="myImg" />
-              <div clasName="user">
+              <div className="user">
                 <h3 className="myName">d___k222</h3>
               </div>
             </div>
