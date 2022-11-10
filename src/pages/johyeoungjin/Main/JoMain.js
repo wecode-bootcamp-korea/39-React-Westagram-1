@@ -1,7 +1,22 @@
 import React from 'react';
+import { useState } from 'react';
 import './JoMain.scss';
 
-function JoMain() {
+const JoMain = () => {
+  const [commentInput, setCommentInput] = useState('');
+  const [commentList, setCommentList] = useState([]);
+  const active = commentInput.length > 5;
+
+  const saveCommentInput = event => {
+    setCommentInput(event.target.value);
+  };
+
+  const handleClickBtn = () => {
+    setCommentList([...commentList, commentInput]);
+  };
+
+  console.log(commentList);
+
   return (
     <>
       <div className="main-container">
@@ -61,12 +76,20 @@ function JoMain() {
                   <span className="nickNameBold">외 962명</span>이 좋아합니다
                 </span>
               </div>
+              {commentList.map(comment => {
+                return <span key={comment}>{comment}</span>;
+              })}
               <div className="articleComentFrame">
                 <input
                   className="commentInput"
                   type={'text'}
                   placeholder="댓글달기..."
+                  value={commentInput}
+                  onChange={saveCommentInput}
                 />
+                <button disabled={!active} onClick={handleClickBtn}>
+                  게시
+                </button>
               </div>
             </div>
           </div>
@@ -77,6 +100,5 @@ function JoMain() {
       </div>
     </>
   );
-}
-
+};
 export default JoMain;

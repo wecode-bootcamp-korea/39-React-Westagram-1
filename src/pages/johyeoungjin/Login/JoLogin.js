@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './JoLogin.scss';
 
 function JoLogin() {
   const [idValue, setIdValue] = useState('');
   const [pwValue, setPwValue] = useState('');
+  const navigate = useNavigate();
 
   const saveUserId = event => {
     console.log(idValue);
@@ -15,6 +18,21 @@ function JoLogin() {
   };
 
   const isValid = pwValue.length > 5 && idValue.includes('@');
+
+  const onClickLogin = e => {
+    fetch('http://10.58.52.176:3000/Login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({ name: idValue, password: pwValue }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        localStorage.setItem('token', data.accessToken);
+        navigate('/JoMain');
+      });
+  };
 
   return (
     <div className="login-container">
@@ -39,12 +57,17 @@ function JoLogin() {
             value={pwValue}
           />
 
-          <button className="loginButton" disabled={!isValid}>
+          <button
+            className="loginButton"
+            disabled={!isValid}
+            onClick={onClickLogin}
+            type="submit"
+          >
             로그인
           </button>
-          <a href="#">
+          <Link to="#">
             <p>비밀번호를 잊으셨나요?</p>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
