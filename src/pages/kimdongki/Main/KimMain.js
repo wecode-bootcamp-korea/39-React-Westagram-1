@@ -75,9 +75,21 @@ function KimMain() {
                 src="./images/kimdongki/song.JPG"
               />
               <div className="feed_icons">
-                <img alt="heart_icon" src="./images/kimdongki/heart.png" />
-                <img alt="comment_icon" src="./images/kimdongki/comment.png" />
-                <img alt="message_icon" src="./images/kimdongki/message.png" />
+                <img
+                  className="heart_icon"
+                  alt="heart_icon"
+                  src="./images/kimdongki/heart.png"
+                />
+                <img
+                  className="comment_icon"
+                  alt="comment_icon"
+                  src="./images/kimdongki/comment.png"
+                />
+                <img
+                  className="message_icon"
+                  alt="message_icon"
+                  src="./images/kimdongki/message.png"
+                />
                 <img
                   className="bookmark_icon"
                   alt="bookmark_icon"
@@ -88,7 +100,6 @@ function KimMain() {
                 <div className="user">
                   <div className="like_image">
                     <img
-                      className="love_image"
                       alt="love_image"
                       src="./images/kimdongki/johnLegend.png"
                     />
@@ -122,7 +133,7 @@ function KimMain() {
                 ))}
               </ul>
               <p className="time">1분 전</p>
-              <div className="comment">
+              <div className="user_comment">
                 <input
                   className="userCommet"
                   onChange={handleCommentInput}
@@ -231,13 +242,21 @@ function KimMain() {
                 </li>
               </ul>
             </div>
-            <h5 className="right-footer">
-              westagram 정보 · 지원 · 홍보 센터 · API · <br />
-              채용 정보 · 개인정보처리방침 · 약관 ·<br />
-              디렉터리 · 프로필 · 해시태그 · 언어
-              <br />
-              <br />© 2022 westagram
-            </h5>
+            <ul className="right-footer">
+              {FOOTER_INFO_LIST.map(infoList => {
+                return (
+                  <li key={infoList.id}>
+                    <a href={infoList.link}>{infoList.text}</a>
+                    <span>{infoList.next}</span>
+                  </li>
+                );
+              })}
+              <h1>
+                <br />
+                © 2022 westagram
+                <br />
+              </h1>
+            </ul>
           </div>
         </div>
       </main>
@@ -246,3 +265,41 @@ function KimMain() {
 }
 
 export default KimMain;
+
+const FOOTER_INFO_LIST = [
+  { id: 1, link: 'https://about.meta.com/', text: 'Meta' },
+  { id: 2, link: 'https://about.instagram.com/', text: '소개' },
+  { id: 3, link: 'https://about.instagram.com/blog', text: '블로그' },
+  {
+    id: 4,
+    link: 'https://about.instagram.com/about-us/careers',
+    text: '채용 정보',
+  },
+  { id: 5, link: 'https://help.instagram.com/', text: '도움말' },
+  {
+    id: 6,
+    link: 'https://developers.facebook.com/docs/instagram',
+    text: 'API',
+  },
+  {
+    id: 7,
+    link: 'https://privacycenter.instagram.com/policy/?entry_point=ig_help_center_data_policy_redirect',
+    text: '개인정보처리방침',
+  },
+  { id: 8, link: 'https://help.instagram.com/581066165581870/', text: '약관' },
+  {
+    id: 9,
+    link: 'https://www.instagram.com/directory/profiles/',
+    text: '인기 계정',
+  },
+  {
+    id: 10,
+    link: 'https://www.instagram.com/directory/hashtags/',
+    text: '해시태그',
+  },
+  {
+    id: 11,
+    link: 'https://www.instagram.com/explore/locations/',
+    text: '위치',
+  },
+];

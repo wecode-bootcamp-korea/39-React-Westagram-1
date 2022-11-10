@@ -11,7 +11,6 @@ body {
     background-color: #fff;
     border-bottom: 1px solid #dbdbdb;
   }
-
   .nav_content {
     width: 1000px;
     margin: 18px auto;
@@ -183,19 +182,37 @@ body {
     margin-top: 5px;
     margin-bottom: 5px;
 
-    img {
+    .heart_icon {
+      width: 30px;
       height: 30px;
       padding: 1px;
-      margin-left: 20px;
+      margin-left: 14px;
     }
-  }
 
-  .bookmark_icon {
-    position: absolute;
-    right: 1px;
-    cursor: pointer;
-    color: #000;
-    margin-right: 15px;
+    .comment_icon {
+      width: 30px;
+      height: 30px;
+      padding: 1px;
+      margin-left: 14px;
+    }
+
+    .message_icon {
+      width: 30px;
+      height: 30px;
+      padding: 1px;
+      margin-left: 14px;
+    }
+
+    .bookmark_icon {
+      position: absolute;
+      right: 1px;
+      cursor: pointer;
+      color: #000;
+      width: 30px;
+      height: 30px;
+      padding: 1px;
+      margin-right: 14px;
+    }
   }
 
   .likes {
@@ -204,6 +221,7 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
+    margin-right: 10px;
 
     .like_image {
       width: 24px;
@@ -218,8 +236,7 @@ body {
         border-radius: 10px;
         border: 1px solid #e6e6e6;
         margin-top: -5px;
-        margin-left: 23px;
-        margin-right: 5px;
+        margin-left: 17px;
         cursor: pointer;
       }
     }
@@ -242,7 +259,7 @@ body {
 
   .feedText {
     font-size: 15px;
-    margin-left: 25px;
+    margin-left: 19px;
   }
 
   .feed_text .myNickName {
@@ -257,7 +274,7 @@ body {
       font-weight: bold;
     }
 
-    span {
+    .Comment {
       margin-left: 5px;
     }
   }
@@ -270,18 +287,18 @@ body {
 
   .newComment .comment_icon {
     position: relative;
-    left: 26%;
+    left: 28%;
   }
 
   .time {
     font-size: 15px;
     margin-top: 3px;
-    margin-left: 24px;
+    margin-left: 19px;
     margin-bottom: 5px;
     color: rgb(142, 142, 142);
   }
 
-  .comment {
+  .user_comment {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -479,10 +496,27 @@ body {
     }
 
     .right-footer {
-      font-size: 16px;
       color: #cacaca;
+      font-size: 14px;
       margin-top: 15px;
       font-weight: 400;
+      li {
+        display: inline-block;
+        position: relative;
+        margin: 0 3px 3px 0;
+        padding-right: 3px;
+        a {
+          color: #cacaca;
+          font-size: 12px;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        span {
+          margin-left: 6px;
+        }
+      }
     }
   }
 }

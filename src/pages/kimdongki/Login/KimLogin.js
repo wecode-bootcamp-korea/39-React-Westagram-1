@@ -22,28 +22,27 @@ function KimLogin() {
   const pressEnter = e => {
     if (e.code === 'Enter' && loginValid === true) {
       //로그인 정보 확인
-      fetch('로그인 API', {
+      fetch('http://10.58.52.220:3000/auth/signin', {
         method: 'post',
+        headers: {
+          'Content-Type': 'application/json;charser=utf-8',
+        },
         body: JSON.stringify({
-          id: 'id',
-          password: 'pw',
+          email: id,
+          password: pw,
         }),
       })
         .then(response => {
           if (response.ok === true) {
             return response.json();
           }
-          throw new Error('에러 발생!');
+          throw new Error('로그인 실패');
         })
-        .catch(error => console.log(error))
+        .catch(error => alert('로그인 실패'))
         .then(data => {
-          if (data.message === 'login success') {
-            localStorage.setItem('TOKEN', data.token);
-            alert('로그인 성공');
-            goToMain();
-          } else {
-            alert('로그인 실패');
-          }
+          localStorage.setItem('TOKEN', data.accessToken);
+          alert('로그인 성공');
+          goToMain();
         });
     }
   };

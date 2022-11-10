@@ -6,7 +6,7 @@ const CommentList = ({ comment }) => {
     <li className="commentLists">
       <div className="newComment">
         <span className="pClass">johnLegend </span>
-        <span> {comment}</span>
+        <span> {comment} </span>
       </div>
     </li>
   );
