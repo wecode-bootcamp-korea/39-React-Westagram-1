@@ -1,30 +1,34 @@
-import './JungMain.scss';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Feed from './Feed';
+import './JungMain.scss';
 
 function JungMain() {
-  const [btnColor, setBtnColor] = useState(false);
-
-  function turnBtn() {
-    return input.length > 0 ? setBtnColor(true) : setBtnColor(false);
+  {
+    /*댓글 기능 구현*/
   }
 
-  const [input, setInput] = useState('');
-  const [commentArr, setCommentArr] = useState([]);
+  // const [commentInput, setCommentInput] = useState('');
+  // const [commentList, setCommentList] = useState([]);
+  // const commentActive = commentInput.length > 5;
 
-  const saveComment = e => {
-    setInput(e.target.value);
-  };
+  // const saveCommentInput = e => {
+  //   setCommentInput(e.target.value);
+  // };
 
-  const commentArray = e => {
-    setCommentArr([...commentArr, input]);
-    setInput('');
-  };
+  // const handleClickBtn = () => {
+  //   const pushedComments = setCommentList([...commentList, commentInput]);
+  //   setCommentList(pushedComments);
+  //   setCommentInput('');
+  // };
 
-  const SingleComment = ({ content }) => {
-    return <li>hyommm_0 {content}</li>;
-  };
+  /*
+  {commentList.map((comment, index) => {
+    return (
+      <li></li>
+    )
+  })}
+  */
 
   const [feedList, setFeedList] = useState([]);
 
@@ -35,7 +39,6 @@ function JungMain() {
         setFeedList(result);
       });
   }, []);
-  console.log(feedList);
 
   return (
     <>

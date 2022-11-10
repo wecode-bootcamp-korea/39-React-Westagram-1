@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './JungLogin.scss';
 
@@ -26,6 +26,18 @@ function JungLogin() {
     setPw(e.target.value);
   };
 
+  const loginFetch = () => {
+    fetch('http://10.58.52.248:3001/auth/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({ email: id, password: password }),
+    })
+      .then(response => console.log(response))
+      .then(data => localStorage.setItem('hyowon', data));
+  };
+
   return (
     <>
       <section className="container-wrap">
@@ -51,7 +63,7 @@ function JungLogin() {
           <button
             className={idPw ? 'trueid' : 'falseid'}
             disabled={!idPw}
-            onClick={goToMain}
+            onClick={loginFetch}
             id="btn"
           >
             로그인

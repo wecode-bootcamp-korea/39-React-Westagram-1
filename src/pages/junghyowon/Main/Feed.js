@@ -1,7 +1,20 @@
-import { findRenderedDOMComponentWithClass } from 'react-dom/test-utils';
+import React, { useState } from 'react';
 
 const Feed = props => {
   const { feed } = props;
+  const [commentInput, setCommentInput] = useState('');
+  const [commentList, setCommentList] = useState([]);
+  const commentActive = commentInput.length > 5;
+
+  const saveCommentInput = e => {
+    setCommentInput(e.target.value);
+  };
+
+  const handleClickBtn = () => {
+    setCommentList([...commentList, commentInput]);
+    setCommentInput('');
+  };
+
   return (
     <>
       <div className="feed-image-top">
@@ -28,8 +41,17 @@ const Feed = props => {
           <p>좋아요 {feed.likeNum}</p>
           <span>{feed.userName}</span>
           <span>{feed.feedText}</span>
-          <ul></ul>
-          <span>{feed.feedTime}</span>
+          <ul>
+            {commentList.map((comment, index) => {
+              return (
+                <li key={index}>
+                  <span className="my-comment-name">hyom_o_o</span>
+                  {comment}
+                </li>
+              );
+            })}
+          </ul>
+          <span className="feed-time">{feed.feedTime}</span>
         </div>
         <div className="comment-write">
           <img alt="emogi" src="/images/junghyowon/emogi.png" />
@@ -37,8 +59,14 @@ const Feed = props => {
             className="comment-input"
             type="text"
             placeholder="댓글 달기..."
+            value={commentInput}
+            onChange={saveCommentInput}
           />
-          <button className="comment-push" type="button">
+          <button
+            className="comment-push"
+            type="button"
+            onClick={handleClickBtn}
+          >
             게시
           </button>
         </div>
