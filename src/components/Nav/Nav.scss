@@ -1,0 +1,23 @@
+@import url(https://fonts.googleapis.com/css2?family=Lobster&display=swap);
+
+body {
+  .links {
+    position: fixed;
+    display: flex;
+    z-index: 1;
+    flex-direction: column;
+    background-color: #fff;
+    top: 100px;
+    right: 0;
+    border: 1px solid #e6e6e6;
+    div {
+      color: #272727;
+      padding: 10px;
+      border-bottom: 1px solid #e6e6e6;
+      font-family: 'Lobster', cursive;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}

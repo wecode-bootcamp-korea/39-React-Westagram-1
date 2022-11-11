@@ -12,11 +12,13 @@ import JungMain from './pages/junghyowon/Main/JungMain';
 import JungLogin from './pages/junghyowon/Login/JungLogin';
 import JoMain from './pages/johyeoungjin/Main/JoMain';
 import JoLogin from './pages/johyeoungjin/Login/JoLogin';
+import Nav from './components/Nav/Nav';
 
 // import 한 컴포넌트에 대한 경로를 각각 설정해줍니다.
 const Router = () => {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/KwakMain" element={<KwakMain />} />
         <Route path="/KwakLogin" element={<KwakLogin />} />
