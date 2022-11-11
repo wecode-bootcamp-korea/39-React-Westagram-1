@@ -3,8 +3,53 @@ import { Link, useNavigate } from 'react-router-dom';
 
 function ShimLogin() {
   let navigate = useNavigate();
+  let signup = () => {
+    //회원가입 확인
+    fetch('http://10.58.52.220:3000/auth/signup', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: account.id,
+        password: account.password,
+      }),
+    })
+      .then(response => {
+        if (response.status != 201) {
+          throw new Error('error');
+        } else {
+          alert('회원가입 성공');
+        }
+      })
+      .catch(error => {
+        alert('회원가입 실패');
+      });
+  };
   let gotomain = () => {
-    navigate('/ShimMain');
+    //로그인 정보 확인
+    fetch('http://10.58.52.220:3000/auth/signin', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({
+        email: account.id,
+        password: account.password,
+      }),
+    })
+      .then(response => {
+        if (response.ok === true) {
+          return response.json();
+        }
+        throw new Error('로그인 실패');
+      })
+      .catch(error => alert('로그인 실패 : 아이디 pw를 확인해주세요!'))
+      .then(data => {
+        localStorage.setItem('TOKEN', data.accessToken);
+        alert('로그인 성공');
+        navigate('/ShimMain');
+      });
   };
 
   const [account, setAccount] = useState({
@@ -25,6 +70,11 @@ function ShimLogin() {
         setVaild(true);
       } else {
         setVaild(false);
+        //활성화 후 엔테치면 메인화면 이동
+        if (e.keyCode === 13) {
+          //로그인 정보 확인
+          gotomain();
+        }
       }
     } else {
       if (account.id.indexOf('@') === -1 || e.target.value.length < 5) {
@@ -33,6 +83,7 @@ function ShimLogin() {
         setVaild(false);
         //활성화 후 엔테치면 메인화면 이동
         if (e.keyCode === 13) {
+          // console.log(account.id,account.password);
           gotomain();
         }
       }
@@ -67,6 +118,9 @@ function ShimLogin() {
           <div className="loginBtnBox">
             <button onClick={gotomain} className="loginBtn" disabled={vaild}>
               로그인
+            </button>
+            <button onClick={signup} className="loginBtn" disabled={vaild}>
+              회원가입
             </button>
           </div>
           <Link className="pwForget" to="#">
