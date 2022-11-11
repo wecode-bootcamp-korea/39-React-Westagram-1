@@ -267,38 +267,37 @@ function KimMain() {
 export default KimMain;
 
 const FOOTER_INFO_LIST = [
-  { id: 1, link: 'https://about.meta.com/', text: 'Meta' },
-  { id: 2, link: 'https://about.instagram.com/', text: '소개' },
-  { id: 3, link: 'https://about.instagram.com/blog', text: '블로그' },
+  { id: 1, link: 'https://about.instagram.com/', text: 'instagam 소개' },
+  { id: 2, link: 'https://about.instagram.com/blog', text: '블로그' },
   {
-    id: 4,
+    id: 3,
     link: 'https://about.instagram.com/about-us/careers',
     text: '채용 정보',
   },
-  { id: 5, link: 'https://help.instagram.com/', text: '도움말' },
+  { id: 4, link: 'https://help.instagram.com/', text: '도움말' },
   {
-    id: 6,
+    id: 5,
     link: 'https://developers.facebook.com/docs/instagram',
     text: 'API',
   },
   {
-    id: 7,
+    id: 6,
     link: 'https://privacycenter.instagram.com/policy/?entry_point=ig_help_center_data_policy_redirect',
     text: '개인정보처리방침',
   },
-  { id: 8, link: 'https://help.instagram.com/581066165581870/', text: '약관' },
+  { id: 7, link: 'https://help.instagram.com/581066165581870/', text: '약관' },
   {
-    id: 9,
+    id: 8,
     link: 'https://www.instagram.com/directory/profiles/',
     text: '인기 계정',
   },
   {
-    id: 10,
+    id: 9,
     link: 'https://www.instagram.com/directory/hashtags/',
     text: '해시태그',
   },
   {
-    id: 11,
+    id: 10,
     link: 'https://www.instagram.com/explore/locations/',
     text: '위치',
   },
