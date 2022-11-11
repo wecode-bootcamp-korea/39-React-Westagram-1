@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "userName": "dong_s_37",
+    "userImg": "./images/shimdongseup/profile_img_1.jpeg",
+    "userInfo": "고성",
+    "feedImg": "./images/shimdongseup/feed_img_1.JPG",
+    "likeNum": 10,
+    "feedText": "고성 바닷가에서...",
+    "feedTime": "43분 전"
+  },
+  {
+    "id": 2,
+    "userName": "milk",
+    "userImg": "./images/shimdongseup/milk_img.jpeg",
+    "userInfo": "한강공원",
+    "feedImg": "./images/shimdongseup/feed_img_2.JPG",
+    "likeNum": 59,
+    "feedText": "한강 날씨 좋다~😍",
+    "feedTime": "2시간 전"
+  },
+  {
+    "id": 3,
+    "userName": "milk",
+    "userImg": "./images/shimdongseup/milk_img.jpeg",
+    "userInfo": "광교호수공원",
+    "feedImg": "./images/shimdongseup/feed_img_3.JPG",
+    "likeNum": 41,
+    "feedText": "광교호수 산책 너무 조아💕",
+    "feedTime": "1일 전"
+  },
+  {
+    "id": 4,
+    "userName": "mcdonald",
+    "userImg": "./images/shimdongseup/mcdonald_img.jpeg",
+    "userInfo": "방콕",
+    "feedImg": "./images/shimdongseup/feed_img_4.JPG",
+    "likeNum": 120,
+    "feedText": "방콕 맥도날드 치킨버거세트 냠냠🍔🍟",
+    "feedTime": "1일 전"
+  }
+]

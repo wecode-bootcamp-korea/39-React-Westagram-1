@@ -1,0 +1,91 @@
+body {
+  background-color: #fafafa;
+  font-family: 'Nanum Gothic', sans-serif;
+  position: relative;
+  h3 {
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  h4 {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  h5 {
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .login {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    top: 100px;
+    .loginBox {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+      height: 500px;
+      border: 1px solid #dbdbdb;
+      background-color: #fff;
+      align-items: center;
+      .logoLink {
+        position: absolute;
+        height: 79px;
+        top: 0px;
+        text-decoration: none;
+        .logo {
+          font-family: 'Lobster', cursive;
+          color: rgb(38, 38, 38);
+          cursor: pointer;
+          font-size: 51px;
+          line-height: 18px;
+          margin: 70px auto;
+        }
+      }
+      .loginInput {
+        margin-top: 170px;
+        input {
+          display: block;
+          width: 270px;
+          height: 40px;
+          background-color: #fafafa;
+          border: 1px solid #dbdbdb;
+          border-radius: 5px;
+          margin-bottom: 5px;
+          padding-left: 10px;
+          &:focus {
+            outline: 1px solid rgb(38, 38, 38);
+          }
+        }
+      }
+      .loginBtnBox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .loginBtn {
+          width: 284px;
+          height: 40px;
+          background-color: #0095f6;
+          color: #fff;
+          border-radius: 5px;
+          margin-top: 10px;
+          text-align: center;
+          border: none;
+          cursor: pointer;
+          &:disabled {
+            background-color: #b8dffd;
+            cursor: auto;
+          }
+        }
+      }
+      .pwForget {
+        position: absolute;
+        bottom: 30px;
+        text-decoration: none;
+        color: #00376b;
+      }
+    }
+  }
+}

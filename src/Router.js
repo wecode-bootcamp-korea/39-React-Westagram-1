@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
-// 심동섭의 컴포넌트
+import Nav from './components/Nav/Nav';
 import KwakMain from './pages/kwakjongbum/Main/KwakMain';
 import KwakLogin from './pages/kwakjongbum/Login/KwakLogin';
 import KimMain from './pages/kimdongki/Main/KimMain';
@@ -17,6 +16,7 @@ import JoLogin from './pages/johyeoungjin/Login/JoLogin';
 const Router = () => {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/KwakMain" element={<KwakMain />} />
         <Route path="/KwakLogin" element={<KwakLogin />} />
